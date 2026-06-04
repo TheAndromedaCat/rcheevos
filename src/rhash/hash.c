@@ -539,6 +539,7 @@ static int rc_hash_from_buffer(char hash[33], uint32_t console_id, const rc_hash
     case RC_CONSOLE_VIRTUAL_BOY:
     case RC_CONSOLE_WASM4:
     case RC_CONSOLE_WONDERSWAN:
+    case RC_CONSOLE_XBOX:
     case RC_CONSOLE_ZX_SPECTRUM:
       return rc_hash_buffer(hash, iterator->buffer, iterator->buffer_size, iterator);
 
@@ -820,6 +821,7 @@ static int rc_hash_from_file(char hash[33], uint32_t console_id, const rc_hash_i
     case RC_CONSOLE_VIRTUAL_BOY:
     case RC_CONSOLE_WASM4:
     case RC_CONSOLE_WONDERSWAN:
+    case RC_CONSOLE_XBOX:
     case RC_CONSOLE_ZX_SPECTRUM:
       /* generic whole-file hash - don't buffer */
       return rc_hash_whole_file(hash, iterator);
@@ -1257,6 +1259,7 @@ static const rc_hash_iterator_ext_handler_entry_t rc_hash_iterator_ext_handlers[
   { "vb", rc_hash_initialize_iterator_single, RC_CONSOLE_VIRTUAL_BOY },
   { "wad", rc_hash_initialize_iterator_single, RC_CONSOLE_WII },
   { "wasm", rc_hash_initialize_iterator_single, RC_CONSOLE_WASM4 },
+  { "xbe", rc_hash_initialize_iterator_single, RC_CONSOLE_XBOX },
   { "woz", rc_hash_initialize_iterator_single, RC_CONSOLE_APPLE_II },
   { "wsc", rc_hash_initialize_iterator_single, RC_CONSOLE_WONDERSWAN },
   { "z64", rc_hash_initialize_iterator_single, RC_CONSOLE_NINTENDO_64 },
